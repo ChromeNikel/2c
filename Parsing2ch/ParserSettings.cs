@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -13,6 +14,8 @@ namespace Parsing2ch
     /// основной URL двача
     /// </summary>
         private string domen;
+        private string nameCookie;
+        private string valueCookie;     
         /// <summary>
         /// селектор парсинга
         /// </summary>
@@ -54,7 +57,7 @@ namespace Parsing2ch
         {
             get
             {
-                return SetCookies();
+                return SetCookies(domen, nameCookie, valueCookie);
             }
             set
             {
@@ -65,17 +68,20 @@ namespace Parsing2ch
         /// настраиваем cookies для скрытых досок 2ch
         /// </summary>
         /// <returns>изменнный WebClient c cookies</returns>
-        private WebClientEx SetCookies()
+        private WebClientEx SetCookies(string mainUrl, string name, string value)
         {
             webcl = new WebClientEx();
             CookieContainer cc = new CookieContainer();
-            cc.Add(new Uri("https://2ch.pm"), new Cookie("__cfduid", "dfeee45d014d0900aeae1d785ea6502491475017092"));
-            cc.Add(new Uri("https://2ch.pm"), new Cookie("__utma", "219771354.1056146642.1475017130.1475185802.1475187970.3"));
-            cc.Add(new Uri("https://2ch.pm"), new Cookie("_ga", "GA1.2.1056146642.1475017130"));
-            cc.Add(new Uri("https://2ch.pm"), new Cookie("_gid", "GA1.2.1472264686.1505145033"));
-            cc.Add(new Uri("https://2ch.pm"), new Cookie("_gid", "GA1.2.1044948328.1505336535"));
-            cc.Add(new Uri("https://2ch.pm"), new Cookie("ageallow", "1"));
-            cc.Add(new Uri("https://2ch.pm"), new Cookie("usercode_auth", "e70dd235a95f50b2c9ea987ca10b0e6c"));
+            using (StreamReader sr = new StreamReader("Cookies.txt"))
+            {
+                while (!sr.EndOfStream) {
+                    var str = sr.ReadLine();
+                    nameCookie = str.Substring(0, str.IndexOf(','));
+                    str = str.Remove(0, str.IndexOf(',') + 1);
+                    valueCookie = str;
+                    cc.Add(new Uri(domen), new Cookie(nameCookie, valueCookie));
+                }
+            }           
             webcl.Cookies = cc;
             return webcl;
         }

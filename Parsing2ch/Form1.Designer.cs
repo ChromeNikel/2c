@@ -32,13 +32,11 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(297, 124);
+            this.button1.Location = new System.Drawing.Point(182, 64);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(187, 68);
             this.button1.TabIndex = 0;
@@ -48,7 +46,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(297, 77);
+            this.textBox1.Location = new System.Drawing.Point(182, 17);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(187, 22);
             this.textBox1.TabIndex = 1;
@@ -56,40 +54,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(127, 80);
+            this.label1.Location = new System.Drawing.Point(12, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Введите URL страницы";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "2ch",
-            "pornreactor",
-            "mutimutigazou"});
-            this.comboBox1.Location = new System.Drawing.Point(297, 22);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(187, 24);
-            this.comboBox1.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(127, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 34);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Выберите сайт для\r\nпарсинга";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 343);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(398, 163);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
@@ -106,8 +81,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
     }
 }
 
